@@ -1,0 +1,21 @@
+.navbar{
+    background-color: black;
+    height: 7%;
+    box-sizing: border-box;
+    margin-top: -8px;
+  
+}
+.navbar ul {
+    list-style:none; 
+}
+.navbar li {
+    padding: 5px;
+    display: inline-block;
+    margin:2px 40px 0px 40px;
+    list-style:none;
+    
+}
+#form1{
+    float: right;
+    margin-right: 15px;
+}
