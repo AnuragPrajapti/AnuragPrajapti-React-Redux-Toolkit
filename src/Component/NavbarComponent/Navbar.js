@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './navbar.css'
+import { Button } from "react-bootstrap";
 const Navbar = () => {
     return (
         <div className="navbar">
@@ -11,8 +12,8 @@ const Navbar = () => {
                 <li><Link to="/service">Service</Link></li>
                 <li><Link to="/register">Register</Link></li>
                 <li><Link to="/login">Login</Link></li>
-                <li><Link to="/userData">UserData</Link></li>
-                {/* <li><Link to="/updateUser">UpdateData</Link></li> */}
+                <li><Button  variant="link" href="http://google.com">Google</Button></li>
+                {/* <li><Link to="/userData">UserData</Link></li> */}
             </ul>
                 <div className="form-outline">
                     <input type="search" placeholder="Search" id="form1" className="form-control"  />

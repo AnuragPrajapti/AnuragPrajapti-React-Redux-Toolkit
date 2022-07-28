@@ -1,10 +1,9 @@
-import { act } from "react-dom/test-utils";
-
 const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
     User:[],
-    isEdit : []
+    isEdit : [],
+    loginData : []
 }
 
 const userSlice  = createSlice({
@@ -12,8 +11,8 @@ const userSlice  = createSlice({
     initialState,
     reducers : {
         addUser : (state, action) => {
-            console.log("Action data regisrer",action.payload);
             state.User.push(action.payload);
+
           },
         editUser : (state , action) => {
           state.id = action.payload
@@ -24,9 +23,13 @@ const userSlice  = createSlice({
         },
         updateUser : (state , action) => {
            state.User[action.payload.id] = action.payload
-        }
+        },
+        loginUser : (state , action ) => {
+            state.loginData  = action.payload 
+            // localStorage.setItem(JSON.parse(state.loginData));
+        },
     }
 })
 
-export const { addUser , editUser , deleteUser , updateUser } = userSlice.actions;
+export const { addUser , editUser , deleteUser , updateUser , loginUser } = userSlice.actions;
 export default userSlice.reducer;

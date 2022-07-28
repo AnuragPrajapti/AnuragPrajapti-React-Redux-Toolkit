@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState,useEffect } from "react";
+import noteContext from "../../Context/NoteContext";
 
 const  Service  = ()=> {
+    const title = useContext(noteContext)
     const intioalcount = 0
     const [count , setCount] = useState(intioalcount);
    
@@ -9,10 +11,16 @@ const  Service  = ()=> {
              setCount(count + 5);
         }
      }
+
+
+  useEffect(() => {
+    title.setTitle("Service component....")
+  }, [])
+  
      
     return(
         <div>
-            <h1>Welcome To Service Component</h1>
+            <title>Service Page......</title>
                Count : {count}
               <button onClick={ ()=> setCount(intioalcount)}>Reset</button>
               <button onClick={ ()=> setCount(count + 1)}>Increment</button>

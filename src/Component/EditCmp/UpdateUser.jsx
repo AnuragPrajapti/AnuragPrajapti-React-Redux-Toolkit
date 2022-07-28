@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { updateUser } from '../../ReduxToolkit/features/userSlice'
+import { Spinner } from 'react-bootstrap'
 
 const UpdateUser = () => {
 
@@ -17,7 +18,7 @@ const UpdateUser = () => {
     console.log(users)
     const navigate = useNavigate();
 
-
+    const [isLoading , setLoading] = useState();
     const [inpval, setInpval] = useState({
         name: "",
         email: "",
@@ -83,7 +84,16 @@ const UpdateUser = () => {
                 date : inpval.date,
                 password : inpval.password
             }))
-            navigate("/userData")
+
+            setLoading(true);
+            setTimeout(()=>{
+                setLoading(false);
+                navigate("/userData")
+            },5000)
+           toast.success("Data Updated!!!!",{
+              position : "top-center"
+           })
+            
         }
     }
 
@@ -91,6 +101,9 @@ const UpdateUser = () => {
         <>
             <div className="container mt-3">
                 <section className='d-flex justify-content-between'>
+                    {
+                        isLoading ? <div>PLease Wait.... <br /> <Spinner animation='border' /> </div> 
+                        :
                     <div className="left_data mt-3 p-3" style={{ width: "100%" }}>
                         <h3 className='text-center col-lg-6'>Register Here!!</h3>
                         <Form >
@@ -119,6 +132,7 @@ const UpdateUser = () => {
                         </Form>
                         <p className='mt-3'>Already Have an Account <span><NavLink to="/login">Login</NavLink></span> </p>
                     </div>
+                      }
                 </section>
                 <ToastContainer />
             </div>

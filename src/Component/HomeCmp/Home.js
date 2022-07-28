@@ -1,13 +1,24 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Carousel } from "react-bootstrap";
 import img1 from '../Images/img1.jpg';
 import img2 from '../Images/img2.jpg';
 import img3 from '../Images/img3.jpg';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './Home.css'
+import { useContext } from "react";
+import noteContext from "../../Context/NoteContext";
 const Home = () => {
+
+  const title = useContext(noteContext);
+
+  useEffect(() => {
+    title.setTitle("Home component....")
+  }, [])
+  
+
   return (
     <div>
+       <title>Home Page...</title>
       <div>
         <Carousel >
           <Carousel.Item>
